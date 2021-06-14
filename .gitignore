@@ -7,3 +7,4 @@ a.out
 *.o
 .DS*
 push_swap
+*.a
