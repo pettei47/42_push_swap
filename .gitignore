@@ -1,0 +1,9 @@
+test/
+test*
+case*
+case*/
+*.gch
+a.out
+*.o
+.DS*
+push_swap
