@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2021/06/14 14:45:37 by teppei           ###   ########.fr        #
+#    Updated: 2021/06/14 17:35:45 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME		=	push_swap
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g
 SRCD		=	srcs
-SRCS		=	$(SRCD)/push_swap.c
+SRCS		=	$(SRCD)/push_swap.c \
+				$(SRCD)/ps_init.c \
+				
 OBJS		=	$(SRCS:%.c=%.o)
 
 HEAD		=	./incs/push_swap.h

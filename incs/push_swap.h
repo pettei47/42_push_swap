@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/14 16:08:46 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/14 16:53:02 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,12 @@ typedef	struct s_ps
 	bool			vflag;
 	bool			cflag;
 }					t_ps;
+
+void	ps_dlst_clear(t_dlst *a);
+void	ps_free_ps(t_dlst *a, t_dlst *b, t_ps *ps);
+int		ps_puterror(t_dlst *a, t_dlst *b, t_ps *ps, int ret);
+t_ps	*ps_init_ps(long argc, char **argv);
+t_dlst	*ps_init_dlst(void);
+char	**ps_get_option(long *argc, char **argv, t_ps *ps);
 
 #endif
