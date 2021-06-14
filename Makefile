@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2021/06/14 14:39:51 by teppei           ###   ########.fr        #
+#    Updated: 2021/06/14 14:45:37 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	rm -f libs/*.a
-alclean: fclean bfclean
+alclean: fclean
 	make fclean -C libft
 	# make fclean -C gnl
 
