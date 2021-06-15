@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/14 16:53:02 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/15 22:41:41 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,21 @@
 
 # define ARGLIMIT 10000
 
+typedef enum e_cmd
+{
+	PA,
+	PB,
+	SA,
+	SB,
+	SS,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+}					t_cmd;
+
 typedef	struct s_dlst
 {
 	long			value;
@@ -26,16 +41,16 @@ typedef	struct s_dlst
 	struct s_dlst	*prev;
 }					t_dlst;
 
-typedef	struct s_pair
+typedef	struct s_vid
 {
 	long			value;
 	long			id;
-}					t_pair;
+}					t_vid;
 
 typedef	struct s_ps
 {
 	t_dlst			*ans;
-	t_pair			n[ARGLIMIT + 10];
+	t_vid			n[ARGLIMIT + 10];
 	long			def[ARGLIMIT + 10];
 	long			size;
 	long			awant;
@@ -52,6 +67,5 @@ void	ps_free_ps(t_dlst *a, t_dlst *b, t_ps *ps);
 int		ps_puterror(t_dlst *a, t_dlst *b, t_ps *ps, int ret);
 t_ps	*ps_init_ps(long argc, char **argv);
 t_dlst	*ps_init_dlst(void);
-char	**ps_get_option(long *argc, char **argv, t_ps *ps);
 
 #endif

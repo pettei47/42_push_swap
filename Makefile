@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2021/06/14 17:35:45 by teppei           ###   ########.fr        #
+#    Updated: 2021/06/15 22:42:13 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,10 @@ CFLAGS		=	-Wall -Wextra -Werror -g
 SRCD		=	srcs
 SRCS		=	$(SRCD)/push_swap.c \
 				$(SRCD)/ps_init.c \
+				$(SRCD)/ps_puterror.c \
+				$(SRCD)/ps_free_ps.c \
+				$(SRCD)/ps_dlst_clear.c \
+				$(SRCD)/ps_init_dlst.c \
 				
 OBJS		=	$(SRCS:%.c=%.o)
 
