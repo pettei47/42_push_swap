@@ -8,3 +8,4 @@ a.out
 .DS*
 push_swap
 *.a
+*.dSYM/
