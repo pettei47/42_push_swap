@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/15 22:41:41 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/15 23:19:12 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,14 @@
 # include <stdbool.h>
 # include "../libft/libft.h"
 
-# define ARGLIMIT 10000
+# define ARG_LIMIT		10000
+# define SORT_VAL		1
+# define SORT_ID		0
+# define LIMIT_LESS7	12
+# define LIMIT_OVER6	30
+# define SORTSIZE		4
+# define STACK_WIDTH	18
+# define INFO_WIDTH		8
 
 typedef enum e_cmd
 {
@@ -49,9 +56,9 @@ typedef	struct s_vid
 
 typedef	struct s_ps
 {
-	t_dlst			*ans;
-	t_vid			n[ARGLIMIT + 10];
-	long			def[ARGLIMIT + 10];
+	t_dlst			*cmds;
+	t_vid			n[ARG_LIMIT + 10];
+	long			def[ARG_LIMIT + 10];
 	long			size;
 	long			awant;
 	long			bwant;
@@ -62,10 +69,13 @@ typedef	struct s_ps
 	bool			cflag;
 }					t_ps;
 
+int		ps_puterror(t_dlst *a, t_dlst *b, t_ps *ps, int ret);
 void	ps_dlst_clear(t_dlst *a);
 void	ps_free_ps(t_dlst *a, t_dlst *b, t_ps *ps);
-int		ps_puterror(t_dlst *a, t_dlst *b, t_ps *ps, int ret);
 t_ps	*ps_init_ps(long argc, char **argv);
-t_dlst	*ps_init_dlst(void);
+t_dlst	*ps_init_dlst(t_ps *ps);
+t_dlst	*ps_set_a(t_ps *ps);
+void	ps_dlst_addback(t_ps *ps, t_dlst *dlst, long value);
+void	ps_presort(t_vid n[], long left, long right, long flag);
 
 #endif

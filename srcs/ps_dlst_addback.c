@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_free_ps.c                                       :+:      :+:    :+:   */
+/*   ps_dlst_addback.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/15 22:37:59 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/15 22:52:13 by teppei           ###   ########.fr       */
+/*   Created: 2021/06/15 23:14:22 by teppei            #+#    #+#             */
+/*   Updated: 2021/06/15 23:19:23 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	ps_free_ps(t_dlst *a, t_dlst *b, t_ps *ps)
+void	ps_dlst_addback(t_ps *ps, t_dlst *dlst, long value)
 {
-	if (a)
-		ps_dlst_clear(a);
-	if (b)
-		ps_dlst_clear(b);
-	if (ps)
-	{
-		ps_dlst_clear(ps->cmds);
-		free(ps);
-	}
+	t_dlst	*new;
+	t_dlst	*ptmp;
+
+	if (!(new = (t_dlst *)malloc(sizeof(t_dlst))))
+		exit(ps_puterror(NULL, NULL, ps, 1));
+	new->value = value;
+	ptmp = dlst->prev;
+	ptmp->next = new;
+	new->next = dlst;
+	dlst->prev = new;
+	new->prev = ptmp;
 }

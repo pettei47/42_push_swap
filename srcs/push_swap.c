@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:32:10 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/15 22:41:56 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/15 23:21:54 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ps_print_dlst(t_dlst *a)
 
 	tmp = a->next;
 	i = 1;
+	printf("dlst\n");
 	while (tmp->value != -1)
 	{
 		printf("[%d]: %ld\n", i++, tmp->value);
@@ -32,7 +33,10 @@ void	ps_print_ps_vid(t_ps *ps)
 
 	i = -1;
 	while (++i < ps->size)
+	{
 		printf("[%ld]: %ld\n", ps->n[i].id, ps->n[i].value);
+		printf("[%d]: %ld\n", i, ps->def[i]);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -41,13 +45,13 @@ int	main(int argc, char **argv)
 	t_dlst	*a;
 	t_dlst	*b;
 
-	if (argc < 2 || ARGLIMIT < argc - 1)
+	if (argc < 2 || ARG_LIMIT < argc - 1)
 		return (1);
 	if (ft_ptrdigit(++argv) == 0)
 		return (ps_puterror(NULL, NULL, NULL, 1));
 	ps = ps_init_ps(argc, argv);
-	a = ps_init_dlst();
-	b = ps_init_dlst();
+	a = ps_set_a(ps);
+	b = ps_init_dlst(ps);
 	ps_print_ps_vid(ps);
 	ps_print_dlst(a);
 	ps_print_dlst(b);

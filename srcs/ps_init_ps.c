@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_init.c                                          :+:      :+:    :+:   */
+/*   ps_init_ps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:39:39 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/14 17:35:30 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/15 23:20:25 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ void	ps_value_init(t_ps *ps, char **argv)
 		ps->n[i].value = ps_atoi(*argv++);
 	}
 	--i;
-	while (++i < ARGLIMIT)
+	while (++i < ARG_LIMIT)
 	{
 		ps->n[i].id = i;
 		ps->n[i].value = 0;
 	}
 }
 
-void	ps_value_dup_check(t_ps *ps)
+void	ps_dup_check(t_ps *ps)
 {
 	long	i;
 
@@ -64,7 +64,7 @@ void	ps_value_dup_check(t_ps *ps)
 	}
 }
 
-void	ps_convert_val_to_id(t_ps *ps)
+void	ps_convert_vid(t_ps *ps)
 {
 	long	i;
 
@@ -85,7 +85,7 @@ t_ps	*ps_init_ps(long argc, char **argv)
 		exit(ps_puterror(NULL, NULL, NULL, 1));
 	ps->awant = 0;
 	ps->bwant = 0;
-	ps->ans = ps_init_dlst();
+	ps->cmds = ps_init_dlst(ps);
 	ps->size = argc - 1;
 	i = -1;
 	while (++i < 5)
@@ -93,10 +93,10 @@ t_ps	*ps_init_ps(long argc, char **argv)
 	ps->ans_result = 0;
 	ps->ans_turn = 0;
 	ps_value_init(ps, argv);
-	//ps_quick_sort(ps->n, 0, ps->size - 1, SORT_VALUE);
-	//ps_value_dup_check(ps);
-	//ps_convert_val_to_id(ps);
-	//ps_quick_sort(ps->n, 0, ps->size - 1, SORT_ID);
+	ps_presort(ps->n, 0, ps->size - 1, SORT_VAL);
+	ps_dup_check(ps);
+	ps_convert_vid(ps);
+	ps_presort(ps->n, 0, ps->size - 1, SORT_ID);
 	return (ps);
 }
 
