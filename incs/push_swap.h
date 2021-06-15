@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/15 23:19:12 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/16 00:05:39 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,18 @@ typedef	struct s_ps
 	bool			cflag;
 }					t_ps;
 
+typedef struct s_sort
+{
+	long			max_turn;
+	long			turn;
+	long			tmp[LIMIT_OVER6 + 10];
+	long			ans[LIMIT_OVER6 + 10];
+	long			pre;
+	long			awant;
+	long			size;
+	long			fin;
+}					t_sort;
+
 int		ps_puterror(t_dlst *a, t_dlst *b, t_ps *ps, int ret);
 void	ps_dlst_clear(t_dlst *a);
 void	ps_free_ps(t_dlst *a, t_dlst *b, t_ps *ps);
@@ -77,5 +89,7 @@ t_dlst	*ps_init_dlst(t_ps *ps);
 t_dlst	*ps_set_a(t_ps *ps);
 void	ps_dlst_addback(t_ps *ps, t_dlst *dlst, long value);
 void	ps_presort(t_vid n[], long left, long right, long flag);
+bool	ps_sorted(t_dlst *a);
+void	ps_less_seven(t_dlst *a, t_dlst *b, t_ps *ps);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:39:39 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/15 23:20:25 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/15 23:51:26 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ps_convert_vid(t_ps *ps)
 	while (++i < ps->size)
 	{
 		ps->def[i] = ps->n[i].value;
-		ps->n[i].value = i;
+		ps->n[i].value = i + 1;
 	}
 }
 

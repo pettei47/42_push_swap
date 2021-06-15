@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:32:10 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/15 23:21:54 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/16 00:06:04 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,19 @@ void	ps_print_ps_vid(t_ps *ps)
 
 	i = -1;
 	while (++i < ps->size)
-	{
-		printf("[%ld]: %ld\n", ps->n[i].id, ps->n[i].value);
 		printf("[%d]: %ld\n", i, ps->def[i]);
-	}
+}
+
+void	push_swap(t_dlst *a, t_dlst *b, t_ps *ps)
+{
+	ps_print_ps_vid(ps);
+	ps_print_dlst(a);
+	ps_print_dlst(b);
+	if (ps->size < 7)
+		ps_less_seven(a, b, ps);
+	//else
+	//	ps_over_six(a, b, ps);
+	return ;
 }
 
 int	main(int argc, char **argv)
@@ -52,9 +61,9 @@ int	main(int argc, char **argv)
 	ps = ps_init_ps(argc, argv);
 	a = ps_set_a(ps);
 	b = ps_init_dlst(ps);
-	ps_print_ps_vid(ps);
-	ps_print_dlst(a);
-	ps_print_dlst(b);
+	if (ps_sorted(a))
+		return (0);
+	push_swap(a, b, ps);
 	ps_free_ps(a, b, ps);
-	return (0);
+	exit (0);
 }

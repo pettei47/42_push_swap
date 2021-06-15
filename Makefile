@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2021/06/15 23:14:55 by teppei           ###   ########.fr        #
+#    Updated: 2021/06/16 00:08:47 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRCS		=	$(SRCD)/push_swap.c \
 				$(SRCD)/ps_presort.c \
 				$(SRCD)/ps_set_a.c \
 				$(SRCD)/ps_dlst_addback.c \
+				$(SRCD)/ps_sorted.c \
+				$(SRCD)/ps_less_seven.c \
 				
 OBJS		=	$(SRCS:%.c=%.o)
 
@@ -39,8 +41,6 @@ $(NAME): $(OBJS)
 	if [ ! -d libs ]; then mkdir libs; fi
 	@make -C libft
 	cp libft/libft.a ./libs
-	# @make -C gnl
-	# cp 42_utils/gnl/libgnl.a ./libs
 	$(CC) -o $(NAME) $(OBJS) $(LINK) $(LIBS)
 %.o: %.c $(HEAD)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -52,7 +52,6 @@ fclean: clean
 	rm -f libs/*.a
 alclean: fclean
 	make fclean -C libft
-	# make fclean -C gnl
 
 re: fclean all
 cl: all clean
