@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/18 07:26:35 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/18 07:46:47 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	ps_ans_update(long turn, t_sort *t);
 bool	ps_skip_check(long command, t_sort *t);
 bool	ps_change_dlst(t_dlst *a, t_dlst *b, long cmd, bool exec);
 void	ps_update_ans_dlst(t_ps *ps, t_dlst *a, t_dlst *b, t_sort *t);
+void	ps_cmds_shorten(t_dlst *cmds);
 
 bool	ps_swap(t_dlst *a);
 bool	ps_push(t_dlst *a, t_dlst *b);

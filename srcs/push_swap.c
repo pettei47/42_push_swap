@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:32:10 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/18 07:29:12 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/18 07:53:28 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,11 @@ void	ps_print_ps_vid(t_ps *ps)
 
 void	push_swap(t_dlst *a, t_dlst *b, t_ps *ps)
 {
-	ps_print_ps_vid(ps);
-	ps_print_dlst(a);
-	ps_print_dlst(b);
-	if (ps->size < 8)
+	if (ps->size < 7)
 		ps_less_seven(a, b, ps);
 	//else
 	//	ps_over_six(a, b, ps);
+	ps_cmds_shorten(ps->cmds);
 	ps_print_dlst(ps->cmds);
 	return ;
 }

@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2021/06/17 23:33:58 by teppei           ###   ########.fr        #
+#    Updated: 2021/06/18 07:46:33 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS		=	$(SRCD)/push_swap.c \
 				$(SRCD)/ps_commands.c \
 				$(SRCD)/ps_double_commands.c \
 				$(SRCD)/ps_update_ans_dlst.c \
+				$(SRCD)/ps_cmds_shorten.c \
 				
 OBJS		=	$(SRCS:%.c=%.o)
 
