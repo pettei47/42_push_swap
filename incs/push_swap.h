@@ -6,13 +6,14 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/17 23:38:13 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/18 07:26:35 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define  PUSH_SWAP_H
 # include <stdio.h>
+# include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
 # include "../libft/libft.h"
@@ -57,6 +58,8 @@ typedef	struct s_vid
 
 typedef	struct s_ps
 {
+	t_dlst			*a;
+	t_dlst			*b;
 	t_dlst			*cmds;
 	t_vid			n[ARG_LIMIT + 10];
 	long			def[ARG_LIMIT + 10];
