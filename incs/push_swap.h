@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/16 00:05:39 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/17 23:38:13 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define SORT_ID		0
 # define LIMIT_LESS7	12
 # define LIMIT_OVER6	30
+# define CMD_NUM		11
 # define SORTSIZE		4
 # define STACK_WIDTH	18
 # define INFO_WIDTH		8
@@ -91,5 +92,17 @@ void	ps_dlst_addback(t_ps *ps, t_dlst *dlst, long value);
 void	ps_presort(t_vid n[], long left, long right, long flag);
 bool	ps_sorted(t_dlst *a);
 void	ps_less_seven(t_dlst *a, t_dlst *b, t_ps *ps);
+void	ps_ans_update(long turn, t_sort *t);
+bool	ps_skip_check(long command, t_sort *t);
+bool	ps_change_dlst(t_dlst *a, t_dlst *b, long cmd, bool exec);
+void	ps_update_ans_dlst(t_ps *ps, t_dlst *a, t_dlst *b, t_sort *t);
+
+bool	ps_swap(t_dlst *a);
+bool	ps_push(t_dlst *a, t_dlst *b);
+bool	ps_rotate(t_dlst *a);
+bool	ps_reverse_rotate(t_dlst *a);
+bool	ps_ss(t_dlst *a, t_dlst *b);
+bool	ps_rr(t_dlst *a, t_dlst *b);
+bool	ps_rrr(t_dlst *a, t_dlst *b);
 
 #endif

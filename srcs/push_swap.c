@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:32:10 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/16 00:06:04 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/17 23:17:18 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	push_swap(t_dlst *a, t_dlst *b, t_ps *ps)
 		ps_less_seven(a, b, ps);
 	//else
 	//	ps_over_six(a, b, ps);
+	ps_print_dlst(ps->cmds);
 	return ;
 }
 

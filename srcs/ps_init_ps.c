@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:39:39 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/15 23:51:26 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/17 23:35:42 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ long	ps_atoi(char *str)
 
 void	ps_value_init(t_ps *ps, char **argv)
 {
-	long	i;
+	int	i;
 
 	i = -1;
 	while (++i < ps->size)
@@ -54,7 +54,7 @@ void	ps_value_init(t_ps *ps, char **argv)
 
 void	ps_dup_check(t_ps *ps)
 {
-	long	i;
+	int	i;
 
 	i = -1;
 	while (++i < ps->size - 1)
@@ -66,7 +66,7 @@ void	ps_dup_check(t_ps *ps)
 
 void	ps_convert_vid(t_ps *ps)
 {
-	long	i;
+	int	i;
 
 	i = -1;
 	while (++i < ps->size)
@@ -79,7 +79,7 @@ void	ps_convert_vid(t_ps *ps)
 t_ps	*ps_init_ps(long argc, char **argv)
 {
 	t_ps	*ps;
-	long	i;
+	int		i;
 
 	if (!(ps = (t_ps *)malloc(sizeof(t_ps))))
 		exit(ps_puterror(NULL, NULL, NULL, 1));

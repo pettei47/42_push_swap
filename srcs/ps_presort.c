@@ -6,13 +6,13 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 22:45:12 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/15 22:58:20 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/17 23:36:37 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	ps_swap(t_vid *a, t_vid *b)
+void	ps_trade(t_vid *a, t_vid *b)
 {
 	long	tmp_id;
 	long	tmp_val;
@@ -27,9 +27,9 @@ void	ps_swap(t_vid *a, t_vid *b)
 
 long	ps_part_value(t_vid n[], long left, long right)
 {
-	long	i;
-	long	j;
-	long	pivot;
+	int	i;
+	int	j;
+	int	pivot;
 
 	i = left;
 	j = right + 1;
@@ -41,17 +41,17 @@ long	ps_part_value(t_vid n[], long left, long right)
 		while (j && n[pivot].value < n[--j].value)
 			;
 		if (i < j)
-			ps_swap(&n[i], &n[j]);
+			ps_trade(&n[i], &n[j]);
 	}
-	ps_swap(&n[pivot], &n[j]);
+	ps_trade(&n[pivot], &n[j]);
 	return (j);
 }
 
 long	ps_part_id(t_vid n[], long left, long right)
 {
-	long	i;
-	long	j;
-	long	pivot;
+	int	i;
+	int	j;
+	int	pivot;
 
 	i = left;
 	j = right + 1;
@@ -63,15 +63,15 @@ long	ps_part_id(t_vid n[], long left, long right)
 		while (n[pivot].id < n[--j].id)
 			;
 		if (i < j)
-			ps_swap(&n[i], &n[j]);
+			ps_trade(&n[i], &n[j]);
 	}
-	ps_swap(&n[pivot], &n[j]);
+	ps_trade(&n[pivot], &n[j]);
 	return (j);
 }
 
 void	ps_presort(t_vid n[], long left, long right, long flag)
 {
-	long	pivot;
+	int	pivot;
 
 	if (left < right)
 	{
