@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_less_seven.c                                    :+:      :+:    :+:   */
+/*   ps_under_six.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 00:00:51 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/17 23:38:37 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/19 18:07:35 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	ps_set_ans_dfs(t_dlst *a, t_dlst *b, t_sort *t, long turn)
 	return ;
 }
 
-void	ps_less_seven(t_dlst *a, t_dlst *b, t_ps *ps)
+void	ps_under_six(t_dlst *a, t_dlst *b, t_ps *ps)
 {
 	t_sort	t;
 	int		i;
 
-	t.max_turn = LIMIT_LESS7;
+	t.max_turn = LIMIT_UNDER6;
 	i = -1;
-	while (++i < LIMIT_LESS7)
+	while (++i < LIMIT_UNDER6)
 	{
 		t.tmp[i] = -1;
 		t.ans[i] = -1;

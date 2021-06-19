@@ -12,6 +12,42 @@
 
 #include "../incs/push_swap.h"
 
+t_dlst	*ps_dlst_delone(t_dlst *dlst)
+{
+	t_dlst	*prev1;
+	t_dlst	*next1;
+
+	prev1 = dlst->prev;
+	next1 = dlst->next;
+	free(dlst);
+	prev1->next = next1;
+	next1->prev = prev1;
+	return (next1);
+}
+
+void	ps_cmds_remove_redo(t_dlst *cmds)
+{
+	t_dlst	*tmp;
+	bool	delete;
+
+	tmp = cmds->next;
+	while (tmp->value != -1)
+	{
+		delete = false;
+		if (tmp->value == PA && tmp->next->value == PB)
+			delete = true;
+		if (tmp->value == PB && tmp->next->value == PA)
+			delete = true;
+		if (delete)
+		{
+			tmp = ps_dlst_delone(tmp);
+			tmp = ps_dlst_delone(tmp);
+			tmp = tmp->prev->prev;
+		}
+		tmp = tmp->next;
+	}
+}
+
 void	ps_dlst_replace(t_dlst *cmds, long cmd)
 {
 	t_dlst	*tmp;
@@ -45,4 +81,5 @@ void	ps_cmds_shorten(t_dlst *cmds)
 			ps_dlst_replace(tmp, SS);
 		tmp = tmp->next;
 	}
+	ps_cmds_remove_redo(cmds);
 }

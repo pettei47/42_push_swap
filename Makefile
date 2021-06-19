@@ -6,7 +6,7 @@
 #    By: teppei <teppei@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 12:46:40 by teppei            #+#    #+#              #
-#    Updated: 2021/06/18 07:46:33 by teppei           ###   ########.fr        #
+#    Updated: 2021/06/19 17:18:32 by teppei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,14 +24,15 @@ SRCS		=	$(SRCD)/push_swap.c \
 				$(SRCD)/ps_set_a.c \
 				$(SRCD)/ps_dlst_addback.c \
 				$(SRCD)/ps_sorted.c \
-				$(SRCD)/ps_less_seven.c \
+				$(SRCD)/ps_under_six.c \
 				$(SRCD)/ps_skip_check.c \
 				$(SRCD)/ps_ans_update.c \
 				$(SRCD)/ps_change_dlst.c \
-				$(SRCD)/ps_commands.c \
+				$(SRCD)/ps_exec_cmds.c \
 				$(SRCD)/ps_double_commands.c \
 				$(SRCD)/ps_update_ans_dlst.c \
 				$(SRCD)/ps_cmds_shorten.c \
+				# $(SRCD)/ps_over_six.c \
 				
 OBJS		=	$(SRCS:%.c=%.o)
 

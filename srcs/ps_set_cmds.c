@@ -1,27 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sorted.c                                        :+:      :+:    :+:   */
+/*   ps_set_cmds.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 00:05:57 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/19 16:53:11 by teppei           ###   ########.fr       */
+/*   Created: 2021/06/19 17:18:52 by teppei            #+#    #+#             */
+/*   Updated: 2021/06/19 17:19:05 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-bool	ps_sorted(t_dlst *a)
-{
-	t_dlst	*dl;
-
-	dl = a;
-	while (dl->next->value != -1)
-	{
-		if (dl->value > dl->next->value)
-			return (false);
-		dl = dl->next;
-	}
-	return (true);
-}
