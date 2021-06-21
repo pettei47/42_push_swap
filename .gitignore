@@ -9,3 +9,4 @@ a.out
 push_swap
 *.a
 *.dSYM/
+push_swap_tester/

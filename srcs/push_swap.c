@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:32:10 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 14:18:05 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:42:47 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ void	push_swap(t_dlst *a, t_dlst *b, t_ps *ps)
 		ps_under_three(a, ps, 1, 'a');
 	else
 		ps_over_three(a, b, ps);
-	//printf("awant: %ld\n", ps->awant);
-	//ps_print_dlst(a, "last a");
 	ps_cmds_shorten(ps->cmds);
 	return ;
 }

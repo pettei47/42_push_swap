@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:17:54 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 14:23:48 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:42:38 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ps_b_separate(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 	i = -1;
 	b_size = size;
 	a_addsize = 0;
-	pivot = (size - 1) / 2;
+	pivot = ps->awant + (size - 1) / 2;
 	while (++i < size)
 	{
 		if (b->next->value - 1 > pivot && b_size-- && ++a_addsize)
@@ -55,7 +55,6 @@ long	ps_search_sep_size(t_dlst *a, t_ps *ps)
 		size++;
 		if (tmp->value > max)
 			max = tmp->value;
-		//printf("max: %ld\n", max);
 		tmp = tmp->next;
 	}
 	return (size);
@@ -83,41 +82,38 @@ void	ps_a_half(t_dlst *a, t_dlst *b, t_ps *ps)
 void	ps_over_three(t_dlst *a, t_dlst *b, t_ps *ps)
 {
 	int	size;
-	int	i;
+	//int i;
 
+	//i = 0;
 	ps_a_half(a, b, ps);
-	i = 0;
 	while (ps->awant <= ps->size)
 	{
 		size = -1;
 		while (size == -1 || size > SORTSIZE)
 		{
 			size = ps_dlst_size(b);
-			//printf("b_size: %d\n", size);
 			if (size > SORTSIZE)
 				ps_b_separate(a, b, ps, size);
-			//ps_print_dlst(a, "after sep b");
-			//ps_print_dlst(b, "after sep b");
+				//ps_print_dlst(a, "after sep b");
+				//ps_print_dlst(b, "after sep b");
 		}
 		if (size)
 			ps_under_three(b, ps, 1, 'b');
-		//ps_print_dlst(a, "after sort b");
-		//ps_print_dlst(b, "after sort b");
 		size = ps_dlst_size(a);
 		if (size <= SORTSIZE)
 			ps_under_three(a, ps, 0, 'a');
-		//ps_print_dlst(a, "after sort a");
-		//ps_print_dlst(b, "after sort a");
 		ps_push_btoa(a, b, ps);
-		//ps_print_dlst(a, "after push_btoa");
-		//ps_print_dlst(b, "after push_btoa");
 		if (size > SORTSIZE)
 			size = ps_search_sep_size(a, ps);
-		//ps_print_dlst(a, "after search_a");
-		//ps_print_dlst(b, "after search_a");
+		//ps_print_dlst(a, "after btoa");
+		//ps_print_dlst(b, "after btoa");
+		//printf("sep_a size %d\n", size);
+		//printf("ps->awant  %ld\n", ps->awant);
 		if (size)
 			ps_a_separate(a, b, ps, size);
-		if (++i > 4)
-			break ;
+		//ps_print_dlst(a, "after sep a");
+		//ps_print_dlst(b, "after sep a");
+		//if (i++ > 4)
+		//	break;
 	}
 }

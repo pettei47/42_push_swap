@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 14:21:28 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 14:21:30 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:28:44 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ps_cmds_remove_redo(t_dlst *cmds)
 			delete = true;
 		if (tmp->value == PB && tmp->next->value == PA)
 			delete = true;
-		if (del)
+		if (delete)
 		{
 			tmp = ps_dlst_delone(tmp);
 			tmp = ps_dlst_delone(tmp);

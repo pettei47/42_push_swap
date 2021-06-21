@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 13:49:24 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:28:12 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,20 @@ typedef enum e_cmd
 	RRR,
 }					t_cmd;
 
-typedef	struct s_dlst
+typedef struct s_dlst
 {
 	long			value;
 	struct s_dlst	*next;
 	struct s_dlst	*prev;
 }					t_dlst;
 
-typedef	struct s_vid
+typedef struct s_vid
 {
 	long			value;
 	long			id;
 }					t_vid;
 
-typedef	struct s_ps
+typedef struct s_ps
 {
 	t_dlst			*a;
 	t_dlst			*b;
@@ -77,7 +77,7 @@ typedef struct s_sort
 {
 	long			max_turn;
 	long			turn;
-	long			tmp[LIMIT_OVER3+ 10];
+	long			tmp[LIMIT_OVER3 + 10];
 	long			ans[LIMIT_OVER3 + 10];
 	long			pre;
 	long			awant;
