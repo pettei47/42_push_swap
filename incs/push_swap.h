@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:33:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/19 18:49:46 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 13:49:24 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 # include <stdbool.h>
 # include "../libft/libft.h"
 
-# define ARG_LIMIT		10000
+# define ARG_LIMIT		5000
 # define SORT_VAL		1
 # define SORT_ID		0
-# define LIMIT_UNDER6	12
-# define LIMIT_OVER6	30
+# define LIMIT_UNDER3	2
+# define LIMIT_OVER3	30
 # define CMD_NUM		11
-# define SORTSIZE		4
+# define SORTSIZE		3
 # define STACK_WIDTH	18
 # define INFO_WIDTH		8
 
@@ -77,8 +77,8 @@ typedef struct s_sort
 {
 	long			max_turn;
 	long			turn;
-	long			tmp[LIMIT_OVER6 + 10];
-	long			ans[LIMIT_OVER6 + 10];
+	long			tmp[LIMIT_OVER3+ 10];
+	long			ans[LIMIT_OVER3 + 10];
 	long			pre;
 	long			awant;
 	long			size;
@@ -93,14 +93,15 @@ t_dlst	*ps_init_dlst(t_ps *ps);
 t_dlst	*ps_set_a(t_ps *ps);
 void	ps_dlst_addback(t_ps *ps, t_dlst *dlst, long value);
 void	ps_presort(t_vid n[], long left, long right, long flag);
-bool	ps_sorted(t_dlst *a);
-void	ps_under_six(t_dlst *a, t_dlst *b, t_ps *ps);
-void	ps_ans_update(long turn, t_sort *t);
+bool	ps_sorted(t_dlst *a, int f);
+void	ps_under_three(t_dlst *a, t_ps *ps, int f, char ab);
+void	ps_ans_update(long turn, t_sort *t, long i);
 bool	ps_skip_check(long command, t_sort *t);
 bool	ps_change_dlst(t_dlst *a, t_dlst *b, long cmd, bool exec);
 void	ps_update_ans_dlst(t_ps *ps, t_dlst *a, t_dlst *b, t_sort *t);
 void	ps_cmds_shorten(t_dlst *cmds);
-void	ps_over_six(t_dlst *a, t_dlst *b, t_ps *ps);
+void	ps_over_three(t_dlst *a, t_dlst *b, t_ps *ps);
+long	ps_dlst_size(t_dlst *b);
 
 bool	ps_swap(t_dlst *a);
 bool	ps_push(t_dlst *a, t_dlst *b);
@@ -109,5 +110,13 @@ bool	ps_reverse_rotate(t_dlst *a);
 bool	ps_ss(t_dlst *a, t_dlst *b);
 bool	ps_rr(t_dlst *a, t_dlst *b);
 bool	ps_rrr(t_dlst *a, t_dlst *b);
+
+bool	ps_push_addans(t_dlst *a, t_dlst *b, t_ps *ps, long cmd);
+bool	ps_rotate_addans(t_dlst *a, t_ps *ps, long cmd);
+bool	ps_reverse_r_addans(t_dlst *a, t_ps *ps, long cmd);
+bool	ps_swap_addans(t_dlst *a, t_ps *ps, long cmd);
+
+void	ps_push_btoa(t_dlst *a, t_dlst *b, t_ps *ps);
+void	ps_print_dlst(t_dlst *a, char *str);
 
 #endif

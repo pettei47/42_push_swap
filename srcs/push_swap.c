@@ -6,34 +6,25 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:32:10 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/19 16:59:35 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:16:47 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	ps_print_dlst(t_dlst *a)
+void	ps_print_dlst(t_dlst *a, char *str)
 {
 	t_dlst	*tmp;
 	int		i;
 
 	tmp = a->next;
 	i = 1;
-	printf("dlst\n");
+	printf("%s\n", str);
 	while (tmp->value != -1)
 	{
 		printf("[%d]: %ld\n", i++, tmp->value);
 		tmp = tmp->next;
 	}
-}
-
-void	ps_print_ps_vid(t_ps *ps)
-{
-	int	i;
-
-	i = -1;
-	while (++i < ps->size)
-		printf("[%d]: %ld\n", i, ps->def[i]);
 }
 
 void	ps_cmd_putout(long cmd)
@@ -77,12 +68,13 @@ void	ps_cmds_print(t_dlst *cmds)
 
 void	push_swap(t_dlst *a, t_dlst *b, t_ps *ps)
 {
-	//if (ps->size < 7)
-		ps_under_six(a, b, ps);
-	//else
-	//	ps_over_six(a, b, ps);
+	if (ps->size < 4)
+		ps_under_three(a, ps, 1, 'a');
+	else
+		ps_over_three(a, b, ps);
+	//printf("awant: %ld\n", ps->awant);
+	//ps_print_dlst(a, "last a");
 	ps_cmds_shorten(ps->cmds);
-	//ps_print_dlst(ps->cmds);
 	return ;
 }
 
@@ -97,7 +89,7 @@ int	main(int argc, char **argv)
 	ps = ps_init_ps(argc, argv);
 	ps->a = ps_set_a(ps);
 	ps->b = ps_init_dlst(ps);
-	if (ps_sorted(ps->a))
+	if (ps_sorted(ps->a, 0))
 		return (0);
 	push_swap(ps->a, ps->b, ps);
 	ps_cmds_print(ps->cmds);
