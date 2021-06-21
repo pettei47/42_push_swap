@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:32:10 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 14:42:47 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 16:13:29 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ps_cmds_print(t_dlst *cmds)
 void	push_swap(t_dlst *a, t_dlst *b, t_ps *ps)
 {
 	if (ps->size < 4)
-		ps_under_three(a, ps, 1, 'a');
+		ps_under_three(a, ps, 0, 'a');
 	else
 		ps_over_three(a, b, ps);
 	ps_cmds_shorten(ps->cmds);
