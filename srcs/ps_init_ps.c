@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:39:39 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/20 23:53:49 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:22:09 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ t_ps	*ps_init_ps(long argc, char **argv)
 	t_ps	*ps;
 	int		i;
 
-	if (!(ps = (t_ps *)malloc(sizeof(t_ps))))
+	ps = (t_ps *)malloc(sizeof(t_ps));
+	if (!ps)
 		exit(ps_puterror(NULL, NULL, NULL, 1));
 	ps->a = NULL;
 	ps->b = NULL;

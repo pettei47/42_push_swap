@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_cmds_shorten.c                                   :+:      :+:    :+:   */
+/*   ps_cmds_shorten.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/18 07:44:30 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/18 07:45:29 by teppei           ###   ########.fr       */
+/*   Created: 2021/06/21 14:21:28 by teppei            #+#    #+#             */
+/*   Updated: 2021/06/21 14:21:30 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ps_cmds_remove_redo(t_dlst *cmds)
 			delete = true;
 		if (tmp->value == PB && tmp->next->value == PA)
 			delete = true;
-		if (delete)
+		if (del)
 		{
 			tmp = ps_dlst_delone(tmp);
 			tmp = ps_dlst_delone(tmp);

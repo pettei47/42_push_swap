@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 00:00:51 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 13:49:14 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:22:40 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ps_set_ans(t_dlst *a, t_ps *ps, long c, char ab)
 {
 	int	s;
 	int	r;
-	int rr;
+	int	rr;
 
 	s = SA;
 	r = RA;

@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:17:54 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 14:15:59 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:23:48 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ps_a_separate(t_dlst *a, t_dlst *b, t_ps *ps, long size)
 
 	i = -1;
 	while (++i < size)
-			ps_push_addans(b, a, ps, PB);
+		ps_push_addans(b, a, ps, PB);
 }
 
 long	ps_search_sep_size(t_dlst *a, t_ps *ps)
@@ -83,7 +83,7 @@ void	ps_a_half(t_dlst *a, t_dlst *b, t_ps *ps)
 void	ps_over_three(t_dlst *a, t_dlst *b, t_ps *ps)
 {
 	int	size;
-	int i;
+	int	i;
 
 	ps_a_half(a, b, ps);
 	i = 0;
