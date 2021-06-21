@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 00:00:51 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 14:43:02 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:48:42 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long	ps_judge_case(t_dlst *a, int f)
 		return (0);
 }
 
-void	ps_set_ans(t_dlst *a, t_ps *ps, long c, char ab)
+void	ps_sort_three(t_dlst *a, t_ps *ps, long c, char ab)
 {
 	int	s;
 	int	r;
@@ -63,5 +63,5 @@ void	ps_set_ans(t_dlst *a, t_ps *ps, long c, char ab)
 void	ps_under_three(t_dlst *a, t_ps *ps, int f, char ab)
 {
 	if (!ps_sorted(a, f))
-		ps_set_ans(a, ps, ps_judge_case(a, f), ab);
+		ps_sort_three(a, ps, ps_judge_case(a, f), ab);
 }

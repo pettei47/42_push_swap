@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:17:54 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 14:42:38 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:57:31 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,7 @@ void	ps_a_half(t_dlst *a, t_dlst *b, t_ps *ps)
 void	ps_over_three(t_dlst *a, t_dlst *b, t_ps *ps)
 {
 	int	size;
-	//int i;
 
-	//i = 0;
 	ps_a_half(a, b, ps);
 	while (ps->awant <= ps->size)
 	{
@@ -94,8 +92,6 @@ void	ps_over_three(t_dlst *a, t_dlst *b, t_ps *ps)
 			size = ps_dlst_size(b);
 			if (size > SORTSIZE)
 				ps_b_separate(a, b, ps, size);
-				//ps_print_dlst(a, "after sep b");
-				//ps_print_dlst(b, "after sep b");
 		}
 		if (size)
 			ps_under_three(b, ps, 1, 'b');
@@ -105,15 +101,7 @@ void	ps_over_three(t_dlst *a, t_dlst *b, t_ps *ps)
 		ps_push_btoa(a, b, ps);
 		if (size > SORTSIZE)
 			size = ps_search_sep_size(a, ps);
-		//ps_print_dlst(a, "after btoa");
-		//ps_print_dlst(b, "after btoa");
-		//printf("sep_a size %d\n", size);
-		//printf("ps->awant  %ld\n", ps->awant);
 		if (size)
 			ps_a_separate(a, b, ps, size);
-		//ps_print_dlst(a, "after sep a");
-		//ps_print_dlst(b, "after sep a");
-		//if (i++ > 4)
-		//	break;
 	}
 }

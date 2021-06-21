@@ -6,7 +6,7 @@
 /*   By: teppei <teppei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 13:25:17 by teppei            #+#    #+#             */
-/*   Updated: 2021/06/21 14:23:12 by teppei           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:57:44 by teppei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 void	ps_rotate_awant(t_dlst *a, t_ps *ps)
 {
-	//ps_print_dlst(a, "in rotate awant");
-	//printf("1 ps->awant: %ld\n", ps->awant);
-	//printf("1 value    : %ld\n", a->next->value);
 	while (a->next->value == ps->awant)
 	{
 		ps_rotate_addans(a, ps, RA);
-		//ps_print_dlst(a, "in rotate awant while");
 		ps->awant++;
-		//printf("ps->awant: %ld\n", ps->awant);
-		//printf("value    : %ld\n", a->next->value);
 	}
 }
 
